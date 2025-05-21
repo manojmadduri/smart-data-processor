@@ -5,11 +5,13 @@ import DownloadLinks from '../components/DownloadLinks';
 import JSONPreviewModal from '../components/JSONPreviewModal';
 import { uploadFiles } from '../services/api';
 
+const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://smart-data-processor.onrender.com';
+
 export default function UploadPage() {
-  const [files, setFiles]       = useState([]);
-  const [loading, setLoading]   = useState(false);
+  const [files, setFiles] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [endpoints, setEndpoints] = useState(null);
-  const [preview, setPreview]   = useState(null);
+  const [preview, setPreview] = useState(null);
 
   const handleProcess = async () => {
     setLoading(true);
@@ -25,9 +27,13 @@ export default function UploadPage() {
   };
 
   const showPreview = useCallback(async (endpoint) => {
-    const res = await fetch(`http://localhost:4000${endpoint}`);
-    const text = await res.text();
-    setPreview(text.split('\n').slice(0, 10).join('\n'));
+    try {
+      const res = await fetch(`${BACKEND_ROOT}${endpoint}`);
+      const text = await res.text();
+      setPreview(text.split('\n').slice(0, 10).join('\n'));
+    } catch (err) {
+      alert('Preview failed: ' + err.message);
+    }
   }, []);
 
   return (
@@ -49,7 +55,6 @@ export default function UploadPage() {
       {endpoints && (
         <div className="mt-6 space-y-4">
           <DownloadLinks endpoints={endpoints} />
-
           <button
             className="btn btn-accent w-full"
             onClick={() => showPreview(endpoints.smart)}
