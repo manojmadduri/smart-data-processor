@@ -1,10 +1,12 @@
 import React from 'react';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/solid';
 
+const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://smart-data-processor.onrender.com';
+
 export default function DownloadLinks({ endpoints }) {
   const handleDownload = async (endpoint, filename) => {
     try {
-      const url = `http://localhost:4000${endpoint}`;
+      const url = `${BACKEND_ROOT}${endpoint}`;
       const res = await fetch(url);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const blob = await res.blob();
