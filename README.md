@@ -297,8 +297,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🚀 Live Demo
 
-- **Frontend:** `https://your-vercel-app.vercel.app`
-- **Backend API:** `https://your-backend-service.onrender.com`
+- https://smart-data-processor.vercel.app/
 
 ---
 
