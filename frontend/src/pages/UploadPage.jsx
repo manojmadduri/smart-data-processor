@@ -4,6 +4,7 @@ import ProgressSpinner from '../components/ProgressSpinner';
 import DownloadLinks from '../components/DownloadLinks';
 import JSONPreviewModal from '../components/JSONPreviewModal';
 import { uploadFiles } from '../services/api';
+import ProcessingOverlay from '../components/ProcessingOverlay';
 
 const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://smart-data-processor.onrender.com';
 
