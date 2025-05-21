@@ -7,7 +7,11 @@ const path   = require('path');
 const fs     = require('fs');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://smart-data-processor-n9zyqqo2q-manojmadduris-projects.vercel.app',
+  methods: ['GET', 'POST'],
+  credentials: false
+}));
 
 // 1) Ensure upload directory exists
 const uploadDir = process.env.UPLOAD_DIR || 'uploads';
