@@ -1,6 +1,6 @@
 import axios from 'axios';
 export const api = axios.create({
-  baseURL: 'https://smart-data-processor-backend.onrender.com'
+  baseURL: 'https://smart-data-processor.onrender.com'
 });
 export const uploadFiles = files => {
   const form = new FormData();
