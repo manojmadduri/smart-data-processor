@@ -9,7 +9,11 @@ const fs = require('fs');
 const app = express();
 
 // ✅ TEMP: Allow all origins during debugging
-app.use(cors()); // You can later restrict to your Vercel domain
+// app.use(cors()); // You can later restrict to your Vercel domain
+app.use(cors({
+  origin: 'https://smart-data-processor.vercel.app',
+  methods: ['GET', 'POST']
+}));
 
 // 1) Ensure upload directory exists
 const uploadDir = process.env.UPLOAD_DIR || 'uploads';
