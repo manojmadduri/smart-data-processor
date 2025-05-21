@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // read from env (fallback to localhost for dev)
-const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://smart-data-processor.onrender.com';
 
 // our Express server has all endpoints under /api
 export const api = axios.create({
