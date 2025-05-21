@@ -11,9 +11,16 @@ body {
 .navbar {
   @apply bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm;
 }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .spinner {
   animation: spin 1s linear infinite;
 }
+
 /* Buttons */
 .btn {
   @apply font-semibold py-2 px-4 rounded transition;
