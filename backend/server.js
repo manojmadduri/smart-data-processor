@@ -8,7 +8,7 @@ const fs     = require('fs');
 
 const app = express();
 app.use(cors({
-  origin: 'https://smart-data-processor-n9zyqqo2q-manojmadduris-projects.vercel.app',
+  origin: 'https://smart-data-processor.vercel.app/',
   methods: ['GET', 'POST'],
   credentials: false
 }));
