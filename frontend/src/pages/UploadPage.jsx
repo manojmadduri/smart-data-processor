@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import FileUploader from '../components/FileUploader';
 import ProgressSpinner from '../components/ProgressSpinner';
+import ProcessingOverlay from '../components/ProcessingOverlay';
 import DownloadLinks from '../components/DownloadLinks';
 import JSONPreviewModal from '../components/JSONPreviewModal';
 import { uploadFiles } from '../services/api';
-import ProcessingOverlay from '../components/ProcessingOverlay';
 
 const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://smart-data-processor.onrender.com';
 
@@ -19,7 +19,7 @@ export default function UploadPage() {
     if (!files.length) return;
 
     setLoading(true);
-    setMessage('⏳ Processing... This may take 30–60 seconds. Please wait.');
+    setMessage('');
     setEndpoints(null);
 
     try {
@@ -45,7 +45,11 @@ export default function UploadPage() {
   }, []);
 
   return (
-    <div className="card max-w-lg w-full p-6 bg-base-200 shadow-xl">
+    <div className="card max-w-lg w-full p-6 bg-base-200 shadow-xl relative">
+      {loading && (
+        <ProcessingOverlay message="⏳ Processing... This may take 30–60 seconds." />
+      )}
+
       <h2 className="text-2xl font-semibold text-center mb-4 text-base-content">
         Upload & Generate
       </h2>
@@ -53,18 +57,11 @@ export default function UploadPage() {
       <FileUploader files={files} setFiles={setFiles} />
 
       <button
-        className="btn btn-primary w-full mt-4 flex items-center justify-center"
+        className="btn btn-primary w-full mt-4"
         disabled={!files.length || loading}
         onClick={handleProcess}
       >
-        {loading ? (
-          <span className="flex items-center gap-2">
-            <ProgressSpinner />
-            <span>Processing...</span>
-          </span>
-        ) : (
-          'Process Files'
-        )}
+        Process Files
       </button>
 
       {message && (
