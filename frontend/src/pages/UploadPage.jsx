@@ -12,15 +12,22 @@ export default function UploadPage() {
   const [loading, setLoading] = useState(false);
   const [endpoints, setEndpoints] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [message, setMessage] = useState('');
 
   const handleProcess = async () => {
+    if (!files.length) return;
+
     setLoading(true);
+    setMessage('⏳ Processing... This may take 30–60 seconds. Please wait.');
     setEndpoints(null);
+
     try {
       const { data } = await uploadFiles(files);
       setEndpoints(data);
+      setMessage('✅ Processing complete! You can now download the results.');
     } catch (e) {
-      alert('Error: ' + e.message);
+      console.error('Upload error:', e);
+      setMessage('❌ Error during processing. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -37,8 +44,8 @@ export default function UploadPage() {
   }, []);
 
   return (
-    <div className="card max-w-lg w-full">
-      <h2 className="text-2xl font-semibold text-center mb-4">
+    <div className="card max-w-lg w-full p-6 bg-base-200 shadow-xl">
+      <h2 className="text-2xl font-semibold text-center mb-4 text-base-content">
         Upload & Generate
       </h2>
 
@@ -49,8 +56,21 @@ export default function UploadPage() {
         disabled={!files.length || loading}
         onClick={handleProcess}
       >
-        {loading ? <ProgressSpinner /> : 'Process Files'}
+        {loading ? (
+          <span className="flex items-center gap-2">
+            <ProgressSpinner />
+            <span>Processing...</span>
+          </span>
+        ) : (
+          'Process Files'
+        )}
       </button>
+
+      {message && (
+        <div className="mt-4 text-center text-sm text-base-content opacity-80">
+          {message}
+        </div>
+      )}
 
       {endpoints && (
         <div className="mt-6 space-y-4">
