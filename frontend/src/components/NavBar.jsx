@@ -35,7 +35,7 @@ export default function NavBar() {
           </button>
 
           <a
-            href="https://github.com/manojmadduri"
+            href="https://github.com/manojmadduri/smart-data-processor-local"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-800 dark:text-gray-200 hover:underline"
