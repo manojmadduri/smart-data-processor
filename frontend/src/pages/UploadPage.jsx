@@ -91,6 +91,12 @@ export default function UploadPage() {
       {preview && (
         <JSONPreviewModal text={preview} onClose={() => setPreview(null)} />
       )}
+
+      <div className="mt-8 text-center text-sm text-base-content opacity-70 max-w-md mx-auto px-4">
+  🔒 <span className="font-medium">Your data is never stored.</span> 
+  Uploaded content is processed temporarily and cleared as soon as you download or refresh the page.
+</div>
+
       <div className="mt-12 px-6 py-6 bg-base-100 rounded-lg shadow-md border border-base-300 text-center space-y-4">
   <h3 className="text-xl font-semibold text-base-content flex justify-center items-center gap-2">
     💡 Got Feedback, Suggestions, or Ideas?
