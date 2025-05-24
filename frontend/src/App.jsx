@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import UploadPage from './pages/UploadPage';
+import FeedbackPage from './pages/FeedbackPage';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Routes>
           <Route path="/"       element={<Home />} />
           <Route path="/upload" element={<UploadPage />} />
+          <Route path="/feedback" element={<FeedbackPage />} />
         </Routes>
       </div>
     </BrowserRouter>
