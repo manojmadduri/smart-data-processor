@@ -60,9 +60,9 @@ export default function NavBar() {
           <Link to="/guide" className={navLinkClass('/guide')}>
             FineTuning Guide
           </Link>
-          <Link to="/pricing" className={navLinkClass('/pricing')}>
+{/*           <Link to="/pricing" className={navLinkClass('/pricing')}>
             Pricing
-          </Link>
+          </Link> */}
           <a
             href="https://github.com/manojmadduri/smart-data-processor-local"
             target="_blank"
@@ -105,9 +105,9 @@ export default function NavBar() {
               </Link>
             </li>
             <li>
-              <Link to="/pricing" className={navLinkClass('/pricing')} onClick={() => setMenuOpen(false)}>
+{/*               <Link to="/pricing" className={navLinkClass('/pricing')} onClick={() => setMenuOpen(false)}>
                 Pricing
-              </Link>
+              </Link> */}
             </li>
             <li>
               <a
