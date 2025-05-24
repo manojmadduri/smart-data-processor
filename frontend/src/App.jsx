@@ -4,8 +4,6 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import UploadPage from './pages/UploadPage';
 import FeedbackPage from './pages/FeedbackPage';
-import FineTuningGuide from './pages/FineTuningGuide';
-
 
 export default function App() {
   return (
@@ -16,8 +14,6 @@ export default function App() {
           <Route path="/"       element={<Home />} />
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/feedback" element={<FeedbackPage />} />
-          <Route path="/guide" element={<FineTuningGuide />} />
-
         </Routes>
       </div>
     </BrowserRouter>
