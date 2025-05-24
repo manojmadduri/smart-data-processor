@@ -91,6 +91,25 @@ export default function UploadPage() {
       {preview && (
         <JSONPreviewModal text={preview} onClose={() => setPreview(null)} />
       )}
+      <div className="mt-12 px-6 py-6 bg-base-100 rounded-lg shadow-md border border-base-300 text-center space-y-4">
+  <h3 className="text-xl font-semibold text-base-content flex justify-center items-center gap-2">
+    💡 Got Feedback, Suggestions, or Ideas?
+  </h3>
+
+  <p className="text-sm text-base-content opacity-80 leading-relaxed max-w-md mx-auto">
+    Help us improve <span className="font-semibold">Smart Data Processor</span>!<br />
+    We’d love to hear your thoughts, suggestions, feature requests, or improvements.
+  </p>
+
+  <div className="pt-2">
+    <a
+      href="/feedback"
+      className="btn btn-primary text-base px-6 py-2 shadow-md hover:scale-105 transition-transform duration-200"
+    >
+      ✍️ Give Feedback
+    </a>
+  </div>
+</div>
     </div>
   );
 }
