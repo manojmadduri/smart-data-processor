@@ -25,9 +25,6 @@ export default function NavBar() {
           >
             Upload
           </Link>
-                    <Link to="/guide" className={navLinkClass('/guide')}>
-            FineTuning Guide
-          </Link>
 
           <button
             onClick={toggle}
