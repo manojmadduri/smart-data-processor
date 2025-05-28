@@ -49,7 +49,9 @@ export default function UploadPage() {
       {loading && (
         <ProcessingOverlay message="⏳ Processing... This may take 30–60 seconds." />
       )}
-
+<div className="bg-red-100 text-red-800 border border-red-400 px-4 py-3 rounded text-center text-sm md:text-base mx-4 mt-4">
+  ⚠️ Our servers are currently experiencing high traffic and may be temporarily unavailable. We’re working to resolve the issue—please check back soon.
+</div>
       <h2 className="text-2xl font-semibold text-center mb-4 text-base-content">
         Upload & Generate
       </h2>
