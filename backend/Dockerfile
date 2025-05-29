@@ -1,18 +1,25 @@
 # Use an official Node image as base (includes Node.js and npm)
 FROM node:18-slim  
 # Install Python (and pip) in the image
-RUN apt-get update && apt-get install -y python3 python3-pip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y python3 python3-pip python3-venv && rm -rf /var/lib/apt/lists/*
 # Set working directory
 WORKDIR /app
-# Copy backend files and install dependencies
-COPY ./backend/package.json ./backend/package-lock.json ./backend/requirements.txt ./ 
-RUN npm install        # install Node dependencies
-RUN pip3 install -r requirements.txt   # install Python dependencies
+# Copy package files first
+COPY package.json package-lock.json ./
+# Install Node dependencies
+RUN npm install
+# Create Python virtual environment
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+# Copy requirements.txt and install Python dependencies
+COPY requirements.txt ./
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the backend code
-COPY ./backend/. ./    # copy all backend files (including scripts/)
+COPY . ./
 # Set environment variables
-ENV PORT=4000 UPLOAD_DIR=uploads PYTHON_PATH=python3
-# Expose the port (for local testing; Render auto-exposes the correct port)
+ENV PORT=4000 UPLOAD_DIR=uploads PYTHON_PATH=/opt/venv/bin/python3
+# Expose the port
 EXPOSE 4000
 # Start the Node server
 CMD ["npm", "start"]
