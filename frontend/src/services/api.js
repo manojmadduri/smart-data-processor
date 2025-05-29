@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://backend-production-0494.up.railway.app';
+const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://smart-data-processor-production.up.railway.app/';
 
 export const api = axios.create({
   baseURL: `${BACKEND_ROOT}/api`,
