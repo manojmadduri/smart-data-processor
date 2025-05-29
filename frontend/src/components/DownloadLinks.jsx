@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/solid';
 
-const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://backend-production-0494.up.railway.app';
+const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://smart-data-processor-production.up.railway.app/';
 
 export default function DownloadLinks({ endpoints }) {
   const handleDownload = async (endpoint, filename) => {
