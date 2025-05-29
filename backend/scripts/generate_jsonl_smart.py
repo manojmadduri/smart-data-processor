@@ -26,7 +26,7 @@ nltk.download('punkt', quiet=True)
 
 # Load models
 embed_model = SentenceTransformer('all-MiniLM-L6-v2')      # Fast, light
-classifier   = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+# classifier   = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
 
 # Define real-world diary topics
 topic_labels = [
