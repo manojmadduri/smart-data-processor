@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://smart-data-processor.onrender.com';
+const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://smart-data-processor-1.onrender.com/';
 
 export const api = axios.create({
   baseURL: `${BACKEND_ROOT}/api`,
