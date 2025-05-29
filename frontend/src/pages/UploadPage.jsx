@@ -6,7 +6,7 @@ import DownloadLinks from '../components/DownloadLinks';
 import JSONPreviewModal from '../components/JSONPreviewModal';
 import { uploadFiles } from '../services/api';
 
-const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://smart-data-processor.onrender.com';
+const BACKEND_ROOT = process.env.REACT_APP_API_URL || 'https://backend-production-0494.up.railway.app';
 
 export default function UploadPage() {
   const [files, setFiles] = useState([]);
