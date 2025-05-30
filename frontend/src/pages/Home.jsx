@@ -21,7 +21,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       {/* Navbar */}
       
-      <div className="bg-red-100 text-red-800 border border-red-400 px-4 py-3 rounded text-center text-sm md:text-base mx-4 mt-4">
+<div className="bg-red-100 text-red-800 border border-red-400 px-4 py-3 rounded text-center text-sm md:text-base mx-4 mt-4">
   ⚠️ Our servers are currently experiencing high traffic and may be temporarily unavailable. We’re working to resolve the issue—please check back soon.
 </div>
 
